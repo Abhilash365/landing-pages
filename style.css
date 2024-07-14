@@ -5,21 +5,22 @@ box-sizing : border-box;
 font-family : 'monospace';
 }
 
-*::selection{
-    color: white;
+:root::selection{
+    color: rgb(255, 255, 255);
     background: #000;
 }
+
 
 .dot{
     height: 100px;
     width: 100px;
     position: fixed;
-  
-scale: 0;
-
+color: #00000000;
+background-color: rgb(222, 222, 94,0.5);
     border-radius: 50%;
- background: #e0e695;
+/* border: 3px solid black; */
     transform: translate(-50%,-50%);
+ 
 }
 
 html, body{
@@ -35,6 +36,7 @@ nav{
     z-index: 400;
     padding: 20px 0 0 20px;
     display: flex;
+  
 
     justify-content: space-between;
 }
@@ -45,12 +47,15 @@ nav .scroll a{
 font-family: sans-serif;
    text-transform: uppercase;
 font-weight:100;
+width: auto;
+position: relative;
 }
 
 nav .right{
     width: 50%;
     padding-left: 30px;
     padding-top: 10px;
+  
 }
 
 nav .scroll{
@@ -60,8 +65,34 @@ nav .scroll{
   justify-content: space-between;
 }
 
+.under::before{
+    position: absolute;
+    content: "";
+    background-color: #111;
+    height: 2px;
+    border-radius: 10px;
+    width: 100%;
+    left: 0;
+    bottom: -3px;
+   transform: scaleX(0);
+   transition: .3s;
+   mix-blend-mode: difference;
+}
 
+/* .scroll a:hover{
+    background-color: red;
 
+} */
+#under::before,
+   a:hover::before{
+    /* background-color: red; */
+    transform: scaleX(1);
+    mix-blend-mode: difference;
+}
+
+nav .scroll a:hover{
+    color: #7a7676;
+}
 
 /* ///// page1 ////// */
 #page1{
@@ -172,12 +203,28 @@ transform: translate(-50%,-50%);
     width:70%;
 
     position: absolute;
-   background-color: rgb(153, 51, 141);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-radius:60px;
     z-index: 20;
+    padding: 0 50px;
 }
 
 
+.point{
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+.hoverBox a{
+    text-decoration: none;
+    color: #111;
+    font-family: sans-serif;
+  
+}
 
 
 

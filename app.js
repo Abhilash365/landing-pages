@@ -68,15 +68,31 @@ document.addEventListener("mousemove",function(dets){
         left:dets.x,
         top:dets.y,
     })
+   
 })
 
-
+let page3 = document.querySelector("#page3");
+page3.addEventListener("mouseleave",function(){
+    gsap.to(".dot",{
+        scale:1,
+        backgroundColor: "rgb(222, 222, 94,0.5)",
+       
+    })
+})
+page3.addEventListener("mouseenter",function(){
+    gsap.to(".dot",{
+        scale:0,
+        
+    })
+})
 let img=document.querySelectorAll(".child");
 
 img.forEach(function (pass) {
     pass.addEventListener("mouseenter",function(){
         gsap.to(".dot",{
     scale:1.2,
+    backgroundColor: "rgb(222, 222, 94)",
+    border:"none",
         })
     })
     
